@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const bookmarkController = require("../controllers/bookmarkController");
 
-// Routes
-router.post("/", bookmarkController.createBookmark);
-router.get("/", bookmarkController.getBookmarks);
-router.get("/:id", bookmarkController.getBookmarkById);
-router.put("/:id", bookmarkController.updateBookmark);
-router.delete("/:id", bookmarkController.deleteBookmark);
+const { createBookmark, getBookmarks, getBookmarkById, updateBookmark, deleteBookmark } =
+  require("../controllers/bookmarkController");
+
+router.route("/")
+  .post(createBookmark)
+  .get(getBookmarks);
+
+router.route("/:id")
+  .get(getBookmarkById)
+  .put(updateBookmark)
+  .delete(deleteBookmark);
 
 module.exports = router;

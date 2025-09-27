@@ -1,12 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const authorController = require("../controllers/authorController");
 
-// Routes
-router.post("/", authorController.createAuthor);
-router.get("/", authorController.getAuthors);
-router.get("/:id", authorController.getAuthorById);
-router.put("/:id", authorController.updateAuthor);
-router.delete("/:id", authorController.deleteAuthor);
+const { createAuthor, getAuthors, getAuthorById, updateAuthor, deleteAuthor } =
+  require("../controllers/authorController");
+
+router.route("/")
+  .post(createAuthor)
+  .get(getAuthors);
+
+router.route("/:id")
+  .get(getAuthorById)
+  .put(updateAuthor)
+  .delete(deleteAuthor);
 
 module.exports = router;
+
