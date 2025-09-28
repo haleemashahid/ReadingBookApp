@@ -1,4 +1,4 @@
-const ReadingHistory = require("../models/ReadingHistory");
+const ReadingHistory = require("../models/readingHistory");
 
 //  Create a new Reading History entry
 exports.createReadingHistory = async (req, res) => {

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { createBookmark, getBookmarks, getBookmarkById, updateBookmark, deleteBookmark } =
-  require("../controllers/bookmarkController");
+  require("../Controllers/bookmarkscontroller");
 
 router.route("/")
   .post(createBookmark)
