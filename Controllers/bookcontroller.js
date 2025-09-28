@@ -1,4 +1,4 @@
-const Book = require("../models/Book");
+const Book = require("../Models/books");
 
 // Create a new Book
 exports.createBook = async (req, res) => {
