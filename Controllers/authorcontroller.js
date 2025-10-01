@@ -24,7 +24,8 @@ exports.getAuthors = async (req, res) => {
 //  Get a single Author by ID
 exports.getAuthorById = async (req, res) => {
   try {
-    const author = await Author.findById(req.params.id);
+   const id = req.params.id;
+    const author = await Author.findById(id);
     if (!author) return res.status(404).json({ message: "Author not found" });
     res.json(author);
   } catch (error) {

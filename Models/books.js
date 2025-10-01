@@ -11,8 +11,17 @@ const bookSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    
+    authorPhoto: {
+     type: String 
+     }, 
+
     coverImage: {
       type: String, 
+      required: false
+    },
+     pdf: {
+      type: String,
       required: false
     },
     authorId: {

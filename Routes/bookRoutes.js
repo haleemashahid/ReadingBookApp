@@ -1,17 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-const { createBook, getBooks, getBookById, updateBook, deleteBook } = 
-require("../controllers/bookController");
+const upload = require("../middleware/upload");
 
-//  Routes
-router.route("/")     
-  .post(createBook)   
-  .get(getBooks);     
+const {
+  createBook,
+  getBooks,
+  getBookById,
+  updateBook,
+  deleteBook,
+  getBooksByAuthor,
+  getBooksByCategory
+} = require("../controller/bookController");
 
-router.route("/:id")  
-  .get(getBookById)   
-  .put(updateBook)    
+// Routes
+router.route("/")
+  .post(
+    upload.fields([
+      { name: "pdf", maxCount: 1 },
+      { name: "coverImage", maxCount: 1 }
+    ]),
+    createBook
+  )
+  .get(getBooks);
+
+router.route("/:id")
+  .get(getBookById)
+  .put(
+    upload.fields([
+      { name: "pdf", maxCount: 1 },
+      { name: "coverImage", maxCount: 1 }
+    ]),
+    updateBook
+  )
   .delete(deleteBook);
 
+router.route("/author/:authorId").get(getBooksByAuthor);
+router.route("/category/:categoryId").get(getBooksByCategory);
+
 module.exports = router;
+
