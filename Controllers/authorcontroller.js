@@ -3,13 +3,26 @@ const Author = require("../models/authors");
 //  Create a new Author
 exports.createAuthor = async (req, res) => {
   try {
-    const author = new Author(req.body);
+     let data = req.body;
+
+    // Check if file exists before accessing its properties
+    if (!req.file) {
+      console.log("ERROR: req.file is undefined");
+      return resp.status(400).json({ error: "Author photo is required" });
+    }
+
+    let imagePath = req.file.path;
+    data.photo = imagePath;
+    
+    const author = new Author(data);
     const savedAuthor = await author.save();
     res.status(201).json(savedAuthor);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
+
+
 
 //  Get all Authors
 exports.getAuthors = async (req, res) => {
