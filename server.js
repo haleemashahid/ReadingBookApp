@@ -1,17 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoutes.js");
-const bookRoutes = require("./routes/bookRoutes.js");
-const authorRoutes = require("./routes/authorRoutes.js");
-const categoryRoutes = require("./routes/categoryRoutes.js");
-const bookmarkRoutes = require("./routes/bookmarkRoutes.js");
-const readingHistoryRoutes = require("./routes/readingHistoryRoutes.js");
+const userRoutes = require("./Routes/userRoutes.js");
+const bookRoutes = require("./Routes/bookRoutes.js");
+const authorRoutes = require("./Routes/authorRoutes.js");
+const categoryRoutes = require("./Routes/categoryRoutes.js");
+const bookmarkRoutes = require("./Routes/bookmarkRoutes.js");
+const readingHistoryRoutes = require("./Routes/readingHistoryRoutes.js");
 
 
 
 
 
 const app = express();
+const path = require("path");
 
 
 // MongoDB Connection
@@ -30,6 +31,7 @@ app.use("/authors", authorRoutes);
 app.use("/category", categoryRoutes);
 app.use("/bookmarks", bookmarkRoutes);
 app.use("/reading-history", readingHistoryRoutes); 
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 

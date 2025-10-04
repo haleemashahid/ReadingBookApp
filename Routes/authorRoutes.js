@@ -1,17 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
-const { createAuthor, getAuthors, getAuthorById, updateAuthor, deleteAuthor } =
-  require("../controllers/authorController");
+const upload = require("../middleware/uploads");
 
+const {
+  createAuthor,
+  getAuthors,
+  getAuthorById,
+  updateAuthor,
+  deleteAuthor
+} = require("../Controllers/authorcontroller");
+
+// Routes
 router.route("/")
-  .post(createAuthor)
+  .post(upload.single("authorPhoto"), createAuthor) 
   .get(getAuthors);
 
 router.route("/:id")
   .get(getAuthorById)
-  .put(updateAuthor)
+  .put(upload.single("authorPhoto"), updateAuthor)
   .delete(deleteAuthor);
 
 module.exports = router;
-
