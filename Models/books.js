@@ -11,10 +11,6 @@ const bookSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    
-    authorPhoto: {
-     type: String 
-     }, 
 
     coverImage: {
       type: String, 

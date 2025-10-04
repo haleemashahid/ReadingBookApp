@@ -12,8 +12,7 @@ exports.createBook = async (req, res) => {
       authorId,
       categoryId,
       pdf,
-      coverImage,
-      authorPhoto
+      coverImage
     });
 
     const savedBook = await book.save();

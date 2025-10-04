@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const upload = require("../middleware/upload");
+const upload = require("../middleware/uploads");
 
 const {
   createBook,
@@ -11,7 +11,7 @@ const {
   deleteBook,
   getBooksByAuthor,
   getBooksByCategory
-} = require("../controller/bookController");
+} = require("../Controllers/bookcontroller");
 
 // Routes
 router.route("/")
@@ -22,7 +22,7 @@ router.route("/")
     ]),
     createBook
   )
-  .get(getBooks);
+  router.route("/").get(getBooks);
 
 router.route("/:id")
   .get(getBookById)
