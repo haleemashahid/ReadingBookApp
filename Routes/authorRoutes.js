@@ -14,12 +14,12 @@ const {
 
 // Routes
 router.route("/")
-  .post(upload.single("authorPhoto"), createAuthor) 
+  .post(upload.single("photo"), createAuthor) 
   .get(getAuthors);
 
 router.route("/:id")
   .get(getAuthorById)
-  .put(upload.single("authorPhoto"), updateAuthor)
+  .put(upload.single("photo"), updateAuthor)
   .delete(deleteAuthor);
 
 module.exports = router;
