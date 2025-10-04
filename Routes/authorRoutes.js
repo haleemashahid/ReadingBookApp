@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const upload = require("./middleware/upload");
+const upload = require("../middleware/uploads");
 
 const {
   createAuthor,
@@ -9,7 +9,7 @@ const {
   getAuthorById,
   updateAuthor,
   deleteAuthor
-} = require("../controllers/authorController");
+} = require("../Controllers/authorcontroller");
 
 // Routes
 router.route("/")

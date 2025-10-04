@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoutes.js");
+const userRoutes = require("./Routes/userRoutes.js");
 const bookRoutes = require("./Routes/bookRoutes.js");
-const authorRoutes = require("./routes/authorRoutes.js");
-const categoryRoutes = require("./routes/categoryRoutes.js");
-const bookmarkRoutes = require("./routes/bookmarkRoutes.js");
-const readingHistoryRoutes = require("./routes/readingHistoryRoutes.js");
+const authorRoutes = require("./Routes/authorRoutes.js");
+const categoryRoutes = require("./Routes/categoryRoutes.js");
+const bookmarkRoutes = require("./Routes/bookmarkRoutes.js");
+const readingHistoryRoutes = require("./Routes/readingHistoryRoutes.js");
 
 
 

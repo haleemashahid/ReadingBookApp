@@ -21,8 +21,7 @@ router.route("/")
       { name: "coverImage", maxCount: 1 }
     ]),
     createBook
-  )
-  router.route("/").get(getBooks);
+  ).get(getBooks);
 
 router.route("/:id")
   .get(getBookById)
